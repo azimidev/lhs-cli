@@ -31,11 +31,13 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	{
 		// Weekend Sunday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'salary');
+
 		// it should return 2 days ago Friday
 		$this->assertEquals('2017-12-08', $sunday);
 
 		// Weekend Saturday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'salary');
+
 		// it should return 1 days ago Saturday
 		$this->assertEquals('2017-12-08', $sunday);
 	}
@@ -45,11 +47,13 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	{
 		// Weekend Sunday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'expenses');
+
 		// it should return tomorrow Monday
 		$this->assertEquals('2017-12-11', $sunday);
 
 		// Weekend Saturday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'expenses');
+
 		// it should return 2 days later Monday
 		$this->assertEquals('2017-12-11', $sunday);
 	}
