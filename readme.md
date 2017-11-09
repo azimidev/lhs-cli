@@ -7,7 +7,7 @@ To install the app and run it, please follow these instructions:
 - Run: `composer install`.
 - Navigate to the root of the app and run: `./index run 2017` or another year such as `./index run 2016` and so on.
 - If you could not run `./index` then make sure you have execute permission on your system. In Mac on root of the app run: `chmod +x ./index`
-- This will show the output on the console as a table and create a csv file on the root of the application, named by year and extension of `.txt`: For eample: `2017.txt`.
+- This will show the output on the console as a **table** and create a **csv** file on the root of the application, named by year and extension of `.txt`: For eample: `2017.txt`.
 
 ### Note
 
