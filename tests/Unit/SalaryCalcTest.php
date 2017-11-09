@@ -2,8 +2,6 @@
 
 use App\PayEntries;
 
-require __DIR__ . '/../../vendor/autoload.php';
-
 class SalaryCalcTest extends PHPUnit\Framework\TestCase
 {
 	protected $app;
