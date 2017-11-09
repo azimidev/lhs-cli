@@ -16,4 +16,11 @@ I could build this app with Laravel and it's command console integration but sin
 - `symfony/console`
 - `symfony/filesystem`
 - `nesbot/carbon` 
-I could also remove the `symfony/filesystem` package and output the file by the help of Unix and Bash: `./index run 2017 > 2017.txt` or `./index run 2016 > 2016.txt`.
+I could also remove the `symfony/filesystem` package and output the file by the help of Unix and Bash: 
+
+```bash
+./index run 2017 > 2017.txt
+./index run 2016 > 2016.txt
+./index run 2015 > 2015.txt
+./index run 2014 > 2014.txt
+``` 
