@@ -29,66 +29,74 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	/** @test */
 	public function it_gets_week_days_for_salary()
 	{
-		// Weekend Sunday
+		// Given is weekend and Sunday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'salary');
 
-		// it should return 2 days ago Friday
+		// Then it should return 2 days ago Friday
 		$this->assertEquals('2017-12-08', $sunday);
 
-		// Weekend Saturday
+		// Given is weekend and Saturday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'salary');
 
-		// it should return 1 days ago Saturday
+		// Then it should return 1 days ago Saturday
 		$this->assertEquals('2017-12-08', $sunday);
 	}
 
 	/** @test */
 	public function it_gets_week_days_for_expenses()
 	{
-		// Weekend Sunday
+		// Given is weekend and Sunday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'expenses');
 
-		// it should return tomorrow Monday
+		// Then it should return tomorrow Monday
 		$this->assertEquals('2017-12-11', $sunday);
 
-		// Weekend Saturday
+		// Given is weekend and Saturday
 		$sunday = $this->app->getWeekDay(2017, 12, 10, 'expenses');
 
-		// it should return 2 days later Monday
+		// Then it should return 2 days later Monday
 		$this->assertEquals('2017-12-11', $sunday);
 	}
 
 	/** @test */
 	public function it_gets_expenses_dates()
 	{
+		// Given is January
 		$january = $this->app->getExpenseDates();
 		$this->assertEquals('2017-01-02', $january[1][0]);
 		$this->assertEquals('2017-01-16', $january[1][1]);
 
+		// Given is February
 		$february = $this->app->getExpenseDates();
 		$this->assertEquals('2017-02-01', $february[2][0]);
 		$this->assertEquals('2017-02-15', $february[2][1]);
 
+		// Given is March
 		$march = $this->app->getExpenseDates();
 		$this->assertEquals('2017-03-01', $march[3][0]);
 		$this->assertEquals('2017-03-15', $march[3][1]);
 
+		// Given is April
 		$april = $this->app->getExpenseDates();
 		$this->assertEquals('2017-04-03', $april[4][0]);
 		$this->assertEquals('2017-04-17', $april[4][1]);
 
+		// Given is May
 		$may = $this->app->getExpenseDates();
 		$this->assertEquals('2017-05-01', $may[5][0]);
 		$this->assertEquals('2017-05-15', $may[5][1]);
 
+		// Given is June
 		$june = $this->app->getExpenseDates();
 		$this->assertEquals('2017-06-01', $june[6][0]);
 		$this->assertEquals('2017-06-15', $june[6][1]);
 
+		// Given is July
 		$july = $this->app->getExpenseDates();
 		$this->assertEquals('2017-07-03', $july[7][0]);
 		$this->assertEquals('2017-07-17', $july[7][1]);
 
+		// Given is August
 		$august = $this->app->getExpenseDates();
 		$this->assertEquals('2017-08-01', $august[8][0]);
 		$this->assertEquals('2017-08-15', $august[8][1]);
