@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
 
 class ClaculateSalaryDateCommand extends Command
 {
@@ -23,5 +24,9 @@ class ClaculateSalaryDateCommand extends Command
 		$dates = (new PayEntries($year))->output();
 
 		$output->writeln($dates);
+
+		$fs = new Filesystem();
+
+		$fs->dumpFile("{$year}.txt", $dates);
 	}
 }
