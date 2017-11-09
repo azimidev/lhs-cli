@@ -4,10 +4,10 @@ use App\PayEntries;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-
 class SalaryCalcTest extends PHPUnit\Framework\TestCase
 {
-	protected  $app;
+	protected $app;
+
 	public function setUp()
 	{
 		parent::setUp();
@@ -17,8 +17,8 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	/** @test */
 	public function it_gets_days_in_month()
 	{
-		$september  = $this->app->getDaysInMonth(2017, 9);
-		$october  = $this->app->getDaysInMonth(2017, 10);
+		$september = $this->app->getDaysInMonth(2017, 9);
+		$october   = $this->app->getDaysInMonth(2017, 10);
 		$november  = $this->app->getDaysInMonth(2017, 11);
 
 		$this->assertEquals(30, $september);
@@ -30,12 +30,12 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	public function it_gets_week_days_for_salary()
 	{
 		// Weekend Sunday
-		$sunday  = $this->app->getWeekDay(2017, 12, 10, 'salary');
+		$sunday = $this->app->getWeekDay(2017, 12, 10, 'salary');
 		// it should return 2 days ago Friday
 		$this->assertEquals('2017-12-08', $sunday);
 
 		// Weekend Saturday
-		$sunday  = $this->app->getWeekDay(2017, 12, 10, 'salary');
+		$sunday = $this->app->getWeekDay(2017, 12, 10, 'salary');
 		// it should return 1 days ago Saturday
 		$this->assertEquals('2017-12-08', $sunday);
 	}
@@ -44,12 +44,12 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	public function it_gets_week_days_for_expenses()
 	{
 		// Weekend Sunday
-		$sunday  = $this->app->getWeekDay(2017, 12, 10, 'expenses');
+		$sunday = $this->app->getWeekDay(2017, 12, 10, 'expenses');
 		// it should return tomorrow Monday
 		$this->assertEquals('2017-12-11', $sunday);
 
 		// Weekend Saturday
-		$sunday  = $this->app->getWeekDay(2017, 12, 10, 'expenses');
+		$sunday = $this->app->getWeekDay(2017, 12, 10, 'expenses');
 		// it should return 2 days later Monday
 		$this->assertEquals('2017-12-11', $sunday);
 	}
