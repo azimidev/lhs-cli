@@ -122,7 +122,7 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	/** @test */
 	public function it_gets_salary_dates()
 	{
-		// Given is
+		// Given the year is 2017
 		$twentySeventeen = $this->app->getSalaryDates();
 
 		$this->assertEquals('2017-01-31', $twentySeventeen[1]); // Jan
