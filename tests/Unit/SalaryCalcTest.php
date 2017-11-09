@@ -11,18 +11,32 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	public function setUp()
 	{
 		parent::setUp();
+
+		// For all tests we test the current year which is 2017 ATM
+		// If you change the year, all assertaions need to be changed
+		// as every year is different
 		$this->app = new PayEntries(2017);
 	}
 
 	/** @test */
 	public function it_gets_days_in_month()
 	{
+		// Given is September 2017
 		$september = $this->app->getDaysInMonth(2017, 9);
+
+		// Then it should return 30 days
+		$this->assertEquals(30, $september);
+
+		// Given is October 2017
 		$october   = $this->app->getDaysInMonth(2017, 10);
+
+		// Then it should return 31 days
+		$this->assertEquals(31, $october);
+
+		// Given is November 2017
 		$november  = $this->app->getDaysInMonth(2017, 11);
 
-		$this->assertEquals(30, $september);
-		$this->assertEquals(31, $october);
+		// Then it should return 30 days
 		$this->assertEquals(30, $november);
 	}
 
@@ -108,6 +122,7 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 	/** @test */
 	public function it_gets_salary_dates()
 	{
+		// Given is
 		$twentySeventeen = $this->app->getSalaryDates();
 
 		$this->assertEquals('2017-01-31', $twentySeventeen[1]); // Jan
