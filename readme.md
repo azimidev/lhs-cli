@@ -1,5 +1,5 @@
 This app is the task have been given to calculate the salary and expense dates:
-To install the app and run it, please follow this instructions:
+To install the app and run it, please follow these instructions:
 
 # Installation
 
