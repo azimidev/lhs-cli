@@ -1,6 +1,8 @@
 This app is the task have been given to calculate the salary and expense dates:
 To install the app and run it, please follow this instructions:
 
+# Installation
+
 - Download the app
 - Run `composer install`
 - To see the calculated dates on console navigate to the root of the app and run: `./index run 2017` or another year such as `./index run 2016` and so on.
