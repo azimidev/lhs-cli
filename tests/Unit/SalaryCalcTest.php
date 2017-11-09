@@ -100,6 +100,9 @@ class SalaryCalcTest extends PHPUnit\Framework\TestCase
 		$august = $this->app->getExpenseDates();
 		$this->assertEquals('2017-08-01', $august[8][0]);
 		$this->assertEquals('2017-08-15', $august[8][1]);
+
+		// We could add and test other months
+		// but 8 months is confident enough that it's working
 	}
 
 	/** @test */
