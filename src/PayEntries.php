@@ -41,10 +41,10 @@ class PayEntries
 		$expensesDates = $this->getExpenseDates();
 
 		$dates = [];
-		for ($i = 1; $i <= 12; $i++)
-		{
+
+		for ($i = 1; $i <= 12; $i++) {
 			$monthName = DateTime::createFromFormat('!m', $i)->format('F');
-			$dates[] = [$monthName, $expensesDates[$i][0], $expensesDates[$i][1], $salaryDates[$i]];
+			$dates[]   = [$monthName, $expensesDates[$i][0], $expensesDates[$i][1], $salaryDates[$i]];
 		}
 
 		return $dates;
