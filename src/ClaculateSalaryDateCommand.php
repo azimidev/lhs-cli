@@ -29,7 +29,6 @@ class ClaculateSalaryDateCommand extends Command
 		      ->render();
 
 		$fs = new Filesystem();
-
 		$fs->dumpFile("{$year}.txt", $app->outputToFile());
 	}
 }
