@@ -60,9 +60,8 @@ class PayEntries
 		$salaryDates   = $this->getSalaryDates();
 		$expensesDates = $this->getExpenseDates();
 
-		echo "Month Name, 1st Expenses Date, 2nd Expenses Date, Salary Date \n";
 
-		$dates = '';
+		$dates = "Month Name, 1st Expenses Date, 2nd Expenses Date, Salary Date \n";
 
 		for ($i = 1; $i <= 12; $i++) {
 			$monthName = DateTime::createFromFormat('!m', $i)->format('F');

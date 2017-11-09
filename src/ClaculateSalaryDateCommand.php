@@ -21,17 +21,15 @@ class ClaculateSalaryDateCommand extends Command
 	public function execute(InputInterface $input, OutputInterface $output)
 	{
 		$year = $input->getArgument('year');
-
-		$datesAsTable = (new PayEntries($year))->outputAsTable();
-		$datesToFile  = (new PayEntries($year))->outputToFile();
+		$app  = new PayEntries($year);
 
 		$table = new Table($output);
 		$table->setHeaders(['Month Name', '1st Expenses Date', '2nd Expenses Date', 'Salary Date'])
-		      ->setRows($datesAsTable)
+		      ->setRows($app->outputAsTable())
 		      ->render();
 
 		$fs = new Filesystem();
 
-		$fs->dumpFile("{$year}.txt", $datesToFile);
+		$fs->dumpFile("{$year}.txt", $app->outputToFile());
 	}
 }
