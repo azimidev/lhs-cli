@@ -31,11 +31,31 @@ class PayEntries
 	}
 
 	/**
-	 * Calculate and output the salary, expenses dates
+	 * Calculate and output the salary, expenses dates as table for console
+	 *
+	 * @return array
+	 */
+	public function outputAsTable()
+	{
+		$salaryDates   = $this->getSalaryDates();
+		$expensesDates = $this->getExpenseDates();
+
+		$dates = [];
+		for ($i = 1; $i <= 12; $i++)
+		{
+			$monthName = DateTime::createFromFormat('!m', $i)->format('F');
+			$dates[] = [$monthName, $expensesDates[$i][0], $expensesDates[$i][1], $salaryDates[$i]];
+		}
+
+		return $dates;
+	}
+
+	/**
+	 * Calculate and output the salary, expenses dates as table for console
 	 *
 	 * @return string
 	 */
-	public function output()
+	public function outputToFile()
 	{
 		$salaryDates   = $this->getSalaryDates();
 		$expensesDates = $this->getExpenseDates();

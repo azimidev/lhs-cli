@@ -3,6 +3,7 @@
 namespace App;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -21,12 +22,16 @@ class ClaculateSalaryDateCommand extends Command
 	{
 		$year = $input->getArgument('year');
 
-		$dates = (new PayEntries($year))->output();
+		$datesAsTable = (new PayEntries($year))->outputAsTable();
+		$datesToFile  = (new PayEntries($year))->outputToFile();
 
-		$output->writeln($dates);
+		$table = new Table($output);
+		$table->setHeaders(['Month Name', '1st Expenses Date', '2nd Expenses Date', 'Salary Date'])
+		      ->setRows($datesAsTable)
+		      ->render();
 
 		$fs = new Filesystem();
 
-		$fs->dumpFile("{$year}.txt", $dates);
+		$fs->dumpFile("{$year}.txt", $datesToFile);
 	}
 }
