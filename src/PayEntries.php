@@ -37,17 +37,19 @@ class PayEntries
 	 */
 	public function output()
 	{
-		$salaryDates    = $this->getSalaryDates();
-		$expenses_dates = $this->getExpenseDates();
+		$salaryDates   = $this->getSalaryDates();
+		$expensesDates = $this->getExpenseDates();
 
-		echo 'Month Name' . ', ' . '1st Expenses Date' . ', ' . '2nd Expenses Date' . ', ' . 'Salary Date' . "\n";
+		echo "Month Name, 1st Expenses Date, 2nd Expenses Date, Salary Date \n";
 
 		$dates = '';
 
 		for ($i = 1; $i <= 12; $i++) {
 			$monthName = DateTime::createFromFormat('!m', $i)->format('F');
-			$dates     .= $monthName . ', ' . $expenses_dates[$i][0] . ', '
-				. $expenses_dates[$i][1] . ', ' . $salaryDates[$i] . "\n";
+			$dates     .= sprintf(
+				"%s, %s, %s, %s \n",
+				$monthName, $expensesDates[$i][0], $expensesDates[$i][1], $salaryDates[$i]
+			);
 		}
 
 		return $dates;
